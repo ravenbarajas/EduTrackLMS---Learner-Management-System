@@ -1,0 +1,239 @@
+Here is a detailed **Product Requirements Document (PRD)** for the frontend mockup of **SkillNest – Modular Learning Hub**, built with **React + Vite**.
+
+---
+
+# 📝 Product Requirements Document (PRD)
+
+## Product Name:
+
+**SkillNest – Modular Learning Hub**
+
+## Purpose:
+
+To design and develop a highly modular and intuitive frontend interface for a digital learning platform tailored to training institutes and corporate L\&D teams.
+
+---
+
+## 🧑‍💼 Target Audience:
+
+* Training institutes offering online certification courses
+* Corporate learning departments for internal employee development
+* L\&D administrators, course creators, and learners
+
+---
+
+## 💡 Core Idea:
+
+SkillNest is a flexible platform to **create**, **deliver**, **track**, and **personalize** training modules with rich media support, gamification, and certifications.
+
+---
+
+## 🔧 Tech Stack:
+
+* **Frontend Framework**: React (functional components with Hooks)
+* **Build Tool**: Vite
+* **Routing**: React Router DOM
+* **Styling**: Tailwind CSS (or Chakra UI)
+* **State Management**: Context API or Redux Toolkit
+* **Testing**: Jest + React Testing Library
+* **Mock Backend**: JSON Server or MSW
+* **Deployment**: Netlify / Vercel
+
+---
+
+## 🧭 Site Architecture
+
+```
+Landing Page /
+├── Hero Section
+├── Feature Highlights
+├── Testimonials
+├── Demo CTA
+└── Footer
+
+Dashboard (Protected Route) /dashboard
+├── Sidebar Navigation
+│   ├── My Courses
+│   ├── Admin Panel (if role = admin)
+│   ├── Leaderboard
+│   └── Certifications
+├── Course Explorer (/dashboard/courses)
+├── Course Viewer (/dashboard/courses/:id)
+├── Admin Course Builder (/dashboard/admin)
+├── Progress Tracker (/dashboard/progress)
+├── Certifications (/dashboard/certifications)
+└── Gamification Center (/dashboard/leaderboard)
+```
+
+---
+
+## 🎯 Key Pages and Features
+
+### 1. **Landing Page**
+
+#### Goal: Introduce product and drive sign-ups/demos
+
+* **Hero Section**: Engaging tagline, screenshots, CTA (“Request Demo” / “Start Free Trial”)
+* **Features Preview**: Icons & short descriptions
+* **Testimonials**: Carousel or quote cards
+* **Client Logos** (optional)
+* **Footer**: Links to About, Terms, Privacy, Contact
+
+---
+
+### 2. **Dashboard Pages**
+
+#### a. **My Courses (/dashboard/courses)**
+
+* Lists all enrolled or available courses
+* Progress bars & completion indicators
+* Course cards with thumbnail, title, short description
+
+#### b. **Course Viewer (/dashboard/courses/\:id)**
+
+* Modular course layout with sections:
+
+  * Video player
+  * Downloadable documents
+  * Embedded quizzes (MCQs, True/False)
+* Progress tracker in sidebar
+* Bookmarking or notes support (optional)
+
+---
+
+#### c. **Admin Panel - Course Creation (/dashboard/admin)**
+
+* Role-restricted to course creators/admins
+* Drag-and-drop or form-based interface to:
+
+  * Upload videos
+  * Attach PDFs/docs
+  * Add quiz sections
+* Tag course by topic, skill level, or department
+* Save/publish workflow
+
+---
+
+#### d. **Progress Tracking (/dashboard/progress)**
+
+* **For Learners**:
+
+  * View progress across all courses
+  * Per-module breakdown with % complete
+* **For Admins**:
+
+  * Dashboard showing course-wide learner stats
+  * Export reports (CSV/download mockup)
+
+---
+
+#### e. **Certification Generator (/dashboard/certifications)**
+
+* List of earned certificates
+* View/Download as PDF
+* For Admins:
+
+  * Create certificate templates
+  * Customize: name, logo, signatures, layout
+* Component: `<CertificatePreview />`
+
+---
+
+#### f. **Gamification Center (/dashboard/leaderboard)**
+
+* **Badges**: Earned for milestones (e.g., "100% Complete", "Top Scorer")
+* **Leaderboard**: Weekly/monthly views by course or global
+* **XP System**: Display cumulative points
+* Visual Elements: Avatars, progress bars, trophy icons
+
+---
+
+## 🔐 Authentication
+
+* Basic login/signup UI (mock only)
+* Role-based UI rendering (admin vs learner)
+* Protected routes with React Router
+
+---
+
+## 🧱 Component Examples
+
+* `<CourseCard />`: Thumbnail, title, short progress bar
+* `<VideoPlayer />`: Embedded player with notes section
+* `<QuizEngine />`: Rendered question forms with validation
+* `<ProgressBar />`: Horizontal bar with % and color state
+* `<LeaderboardTable />`: Rankings with avatars and points
+* `<BadgeCard />`: Unlockable achievement UI
+
+---
+
+## 📊 Mock Data Structure
+
+```json
+{
+  "courses": [
+    {
+      "id": "c1",
+      "title": "Introduction to Leadership",
+      "modules": [
+        {
+          "type": "video",
+          "title": "Welcome Video",
+          "url": "video-url"
+        },
+        {
+          "type": "quiz",
+          "questions": [...]
+        }
+      ],
+      "tags": ["leadership", "beginner"],
+      "author": "admin1"
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "role": "learner",
+      "enrolledCourses": ["c1"],
+      "progress": {
+        "c1": 60
+      },
+      "certificates": ["cert1"]
+    }
+  ],
+  "certificates": [
+    {
+      "id": "cert1",
+      "userId": "u1",
+      "courseId": "c1",
+      "template": "basic",
+      "issuedOn": "2025-05-01"
+    }
+  ]
+}
+```
+
+---
+
+## 🧪 Testing Plan
+
+* Unit tests for major components
+* Mock interactions with course modules
+* Route-based view testing (learner vs admin)
+
+---
+
+## 📅 MVP Timeline
+
+| Week | Milestone                             |
+| ---- | ------------------------------------- |
+| 1    | Project setup, landing page + routing |
+| 2    | My Courses + Course Viewer            |
+| 3    | Admin Panel – Course Creation         |
+| 4    | Progress Tracker + Gamification       |
+| 5    | Certification Generator + Polish      |
+| 6    | Testing, final mock deployment        |
+
+---
+
+Would you like a Vite + React starter code setup scaffolded for this mockup (with pages/components laid out)?
